@@ -9,19 +9,19 @@
 
           <div class="modal-body">
             <slot name="body">
-              <span v-if="!component"> {{modalConfig.content }} </span>
+              <span v-if="!component"> {{ modalConfig.content }} </span>
               <component :is="component" v-bind="modalConfig.props"></component>
             </slot>
           </div>
 
           <div class="modal-footer" v-if="!component">
             <slot name="footer">
-              <button class="modal-default-button" @click="confirm">
-                {{ modalConfig.confirmText }}
-              </button>
-              <button class="modal-default-button" @click="close">
-                {{ modalConfig.cancelText }}
-              </button>
+              <div class="row mt-2 justify-flex-end gap-1">
+                <button class="btn br-none" @click="close">{{ modalConfig.cancelText }}</button>
+                <button class="btn-primary br-none text-white" @click="confirm">
+                  {{ modalConfig.confirmText }}
+                </button>
+              </div>
             </slot>
           </div>
         </div>

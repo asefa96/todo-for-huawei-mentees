@@ -24,6 +24,7 @@ import Input from '@/components/common/Input.vue'
 import TodoService from '@/services/Todo.service'
 import AppUtil from '@/utils'
 import * as uuid from 'uuid'
+import TodoDto from '@/entities/dtos/TodoDto'
 
 export default {
   name: 'TodoInput',
@@ -56,11 +57,10 @@ export default {
       }
 
       if (this.mode === 'add') {
-        TodoService.addTodo({
+        TodoService.addTodo(new TodoDto({
           todo: this.todo,
-          date: new Date().toDateString(),
           id: uuid.v4()
-        })
+        }))
       }
 
       this.close()
