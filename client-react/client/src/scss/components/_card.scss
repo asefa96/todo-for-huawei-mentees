@@ -1,0 +1,39 @@
+@use 'sass:math';
+
+.card {
+  display: block;
+  padding: $base-padding;
+  border: $base-border-thickness solid #ddd;
+  box-shadow: $base-box-shadow;
+  border-radius: math.div($base-border-radius, 4);
+
+  .card-title {
+    font-size: $base-font-size;
+    padding-bottom: $base-padding;
+    font-weight: bold;
+  }
+  .card-body {
+    font-size: $base-font-size;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+.fadeIn{
+  animation: .3s ease-in-out both fade-in
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

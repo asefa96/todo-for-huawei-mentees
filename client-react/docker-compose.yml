@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  json-server:
+    build: ./server
+    container_name: db_server
+    ports:
+      - '8081:8081'
+    volumes:
+      - ./server:/app
+  react-app:
+    build: ./client
+    container_name: react_app
+    ports:
+      - '3000:3000'
+    stdin_open: true
